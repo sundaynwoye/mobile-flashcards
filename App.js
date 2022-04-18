@@ -74,6 +74,7 @@ export default function App() {
                     <Stack.Screen name="DeckInfo" component={DeckInfo} options={{
                         title: 'Deck Detail'
                     }} />
+                    <Stack.Screen name="AddCard" component={AddCard} />
                 </Stack.Navigator>
             </NavigationContainer>
       </Provider>

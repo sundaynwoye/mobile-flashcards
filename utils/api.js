@@ -46,5 +46,23 @@ export const saveDeckAS = async (title) => {
     }
 }
 
-
+export const saveCardToDeckAS = async (title, card) => {
+    try {
+        const jsonValue = await AsyncStorage.getItem(DECKS_STORAGE_KEY);
+        if (jsonValue !== null) {
+            const data = JSON.parse(jsonValue);
+            const deck = data[title];
+            await AsyncStorage.mergeItem(
+                DECKS_STORAGE_KEY,
+                JSON.stringify({
+                    [title]: {
+                        questions: [...deck.questions].concat(card)
+                    }
+                })
+            );
+        }
+    } catch (err) {
+        console.log(err);
+    }
+}
 
