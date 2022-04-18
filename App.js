@@ -74,7 +74,17 @@ export default function App() {
                     <Stack.Screen name="DeckInfo" component={DeckInfo} options={{
                         title: 'Deck Detail'
                     }} />
-                    <Stack.Screen name="AddCard" component={AddCard} />
+                    <Stack.Screen name="AddCard" component={AddCard} options={{
+                        title: 'Add Card'
+                    }} />
+                    <Stack.Screen name="Quiz" component={Quiz} options={
+                        ({ route }) => {
+                            const { title } = route.params;
+                            return {
+                                title: `${title} Quiz`
+                            }
+                        }
+                    } />
                 </Stack.Navigator>
             </NavigationContainer>
       </Provider>

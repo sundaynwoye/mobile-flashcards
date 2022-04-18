@@ -30,8 +30,6 @@ function decks(state = {}, action) {
                     questions: [...state[deckId].questions].concat(card)
                 }
             }
-        case RESET_STORE:
-            return INITIAL_STATE;
         default:
             return state;
     }
