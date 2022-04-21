@@ -50,7 +50,7 @@ export class Quiz extends Component {
                 if (questionCount === correct + incorrect) {
                     this.setState({ show: screen.RESULT });
                 } else {
-                    this.viewPager.setPage(page + 1);
+                    this.PagerView.setPage(page + 1);
                     this.setState(prevState => ({
                         show: screen.QUESTION
                     }));
@@ -144,8 +144,8 @@ export class Quiz extends Component {
                 style={styles.container}
                 scrollEnabled={true}
                 onPageSelected={this.handlePageChange}
-                ref={viewPager => {
-                    this.viewPager = viewPager;
+                ref={PagerView => {
+                    this.PagerView = PagerView;
                 }}
             >
                 {questions.map((question, idx) => (
